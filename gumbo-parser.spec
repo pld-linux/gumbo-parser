@@ -2,12 +2,12 @@ Summary:	Google's HTML5 parser library for C99
 Name:		gumbo-parser
 Version:	0.1
 Release:	0.20140908
-License:	Apache-2.0
+License:	Apache v2.0
 Group:		Development/Libraries
-URL:		http://github.com/google/gumbo-parser
-#Snapshot:	d90ea2b2d01b27a7adf0501f644a7782e50362fe
+# use this url as next snapshot url: https://github.com/google/gumbo-parser/archive/master/%{name}-%{version}-%{release}.tar.gz
 Source0:	https://codeload.github.com/google/gumbo-parser/zip/master
 # Source0-md5:	7c6af930a4132ff5bf3e0f07bdae529c
+URL:		http://github.com/google/gumbo-parser
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
@@ -36,7 +36,8 @@ This subpackage contains libraries and header files for developing
 applications that want to make use of gumbo-parser.
 
 %prep
-%setup -qn %{name}-master
+%setup -qc
+mv %{name}-master/* .
 
 %build
 %{__libtoolize}
@@ -51,9 +52,10 @@ applications that want to make use of gumbo-parser.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgumbo.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,7 +65,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libgumbo.so.1*
+%attr(755,root,root) %{_libdir}/libgumbo.so.*.*.*
+%ghost %{_libdir}/libgumbo.so.1
 
 %files devel
 %defattr(644,root,root,755)
