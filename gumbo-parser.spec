@@ -1,6 +1,6 @@
 Summary:	Google's HTML5 parser library for C99
 Name:		gumbo-parser
-Version:	0.1
+Version:	1.0
 Release:	0.20140908
 License:	Apache v2.0
 Group:		Development/Libraries
