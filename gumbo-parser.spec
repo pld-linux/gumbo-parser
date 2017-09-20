@@ -1,12 +1,12 @@
 Summary:	Google's HTML5 parser library for C99
 Name:		gumbo-parser
-Version:	0.9.2
-Release:	2
+Version:	0.10.1
+Release:	1
 Epoch:		1
 License:	Apache v2.0
 Group:		Development/Libraries
 Source0:	https://github.com/google/gumbo-parser/archive/v%{version}.tar.gz
-# Source0-md5:	305211794501cb7d8ab8d7b16dbbdbf6
+# Source0-md5:	c6f75c9eda65e897c242f8958a34aed0
 URL:		http://github.com/google/gumbo-parser
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -70,5 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/gumbo.h
+%{_includedir}/tag_enum.h
 %attr(755,root,root) %{_libdir}/libgumbo.so
 %{_pkgconfigdir}/gumbo.pc
