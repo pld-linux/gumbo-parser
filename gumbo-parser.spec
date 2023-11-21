@@ -12,16 +12,14 @@
 Summary:	Google's HTML5 parser library for C99
 Summary(pl.UTF-8):	Biblioteka Google'a do analizy HTML5 dla C99
 Name:		gumbo-parser
-Version:	0.10.1
-Release:	6
+Version:	0.12.1
+Release:	1
 Epoch:		1
 License:	Apache v2.0
 Group:		Libraries
-#Source0Download: https://github.com/google/gumbo-parser/releases
-# TODO:		https://github.com/google/gumbo-parser/archive/v%{version}/%{name}-%{version}.tar.gz
-Source0:	https://github.com/google/gumbo-parser/archive/v%{version}.tar.gz
-# Source0-md5:	c6f75c9eda65e897c242f8958a34aed0
-URL:		http://github.com/google/gumbo-parser
+Source0:	https://codeberg.org/grisha/gumbo-parser/archive/%{version}.tar.gz
+# Source0-md5:	5182b84afd7404e4a87fefc0d0accf35
+URL:		https://codeberg.org/grisha/gumbo-parser
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
@@ -101,7 +99,7 @@ Python 3 interface to Gumbo HTML5 parser.
 Interfejs Pythona 3 do analizatora HTML5 Gumbo.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 
 %build
 %{__libtoolize}
@@ -149,7 +147,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgumbo.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgumbo.so.1
+%attr(755,root,root) %ghost %{_libdir}/libgumbo.so.2
 
 %files devel
 %defattr(644,root,root,755)
